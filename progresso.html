@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento M&C Engenharia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Estilo para o botão de impressão */
+        .print-button {
+            background-color: #4CAF50; /* Cor de fundo verde */
+            border: none; /* Remove a borda */
+            color: white; /* Cor do texto branco */
+            padding: 10px 20px; /* Espaçamento interno */
+            text-align: center; /* Centraliza o texto */
+            text-decoration: none; /* Remove o sublinhado padrão */
+            display: inline-block; /* Permite definir largura e altura */
+            font-size: 16px; /* Tamanho da fonte */
+            margin: 4px 2px; /* Margem */
+            cursor: pointer; /* Muda o cursor ao passar por cima */
+            border-radius: 5px; /* Borda arredondada */
+        }
+
+        /* Oculta o botão de impressão durante a impressão */
+        @media print {
+            .print-button {
+                display: none;
+            }
+
+            /* Centraliza a logo e o título durante a impressão */
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            img {
+                margin: 0 auto; /* Centraliza a imagem horizontalmente */
+            }
+
+            h1 {
+                text-align: center; /* Centraliza o texto do título */
+            }
+            .back-button {
+                display: none;
+            }
+        }
+
+        /* Estilo para a barra de progresso */
+        .progress-bar-container {
+            width: 70%; /* Diminui a largura da barra */
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden; /* Garante que a barra interna não ultrapasse as bordas */
+            display: inline-block; /* Permite que a barra e a porcentagem fiquem lado a lado */
+            margin-right: 5px; /* Espaçamento entre a barra e a porcentagem */
+        }
+
+        .progress-bar {
+            background-color: #4CAF50;
+            height: 20px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 20px;
+            color: black;
+            width: 0%; /* Inicialmente vazia, será preenchida via JavaScript */
+        }
+
+        .progress-percentage {
+            display: inline-block; /* Alinha a porcentagem horizontalmente */
+            width: 25%; /* Define a largura da porcentagem */
+            text-align: right; /* Alinha o texto à direita */
+        }
+
+        .back-button {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="logoo.png" alt="Logo" style="max-width: 100px; margin-bottom: 10px;">
+    <h1>Gerenciamento M&C</h1>
+
+    <table id="clientsTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Progresso</th>
+                <th>Status</th>
+                <th>Observação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados dos clientes serão inseridos aqui via JavaScript -->
+        </tbody>
+    </table>
+
+    <button class="print-button" onclick="window.print()">Imprimir Página</button>
+    <button class="back-button" onclick="window.location.href='index.html'">Voltar</button>
+
+    <h2>Controle de PLS</h2>
+    <table id="plsTable">
+        <thead>
+            <tr>
+                <th>Nome do Cliente</th>
+                <th>PLS 1</th>
+                <th>PLS 2</th>
+                <th>PLS 3</th>
+                <th>PLS 4</th>
+                <th>PLS 5</th>
+                <th>PLS 6</th>
+                <th>PLS 7</th>
+                <th>PLS 8</th>
+                <th>PLS 9</th>
+                <th>Final</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>José Fais</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Beatriz Moreira</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Carol e André</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Ruan Gabriel</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>David Pipa</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Daisy</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Caroline Gama</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>David Pipa</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Caroline Ranzani</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Carlos Olione</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Marieli Ramalho</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <tr>
+                <td>Luan Fonseca</td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+                <td><span style="border: 1px solid black; display: inline-block; width: 15px; height: 15px; margin: 5px;"></span></td>
+            </tr>
+            <!-- Adicione mais linhas conforme necessário -->
+        </tbody>
+    </table>
+
+    <script>
+        const clients = [
+            { name: 'Carlos', progress: 12, status: 'Aguardando', observation: '' },
+            { name: 'Kelly Sorvete', progress: 1, status: 'Aguardando', observation: '' },
+            { name: 'Andreia Pardinha', progress: 1, status: 'Aguardando', observation: '' },
+            { name: 'Daisy', progress: 40, status: 'Em Prefeitura', observation: 'Aguardando Pref' },
+            { name: 'David', progress: 10, status: 'Aguardando Restrição', observation: 'Ja Pago' },
+            { name: 'José', progress: 40, status: 'Em Prefeitura', observation: '' },
+            { name: 'Ruan', progress: 1, status: 'Aguardando Holerite', observation: 'Safra' },
+            { name: 'Beatriz', progress: 40, status: 'Em Prefeitura', observation: '' }
+        ];
+
+        function populateTable() {
+            const tableBody = document.getElementById('clientsTable').getElementsByTagName('tbody')[0];
+
+            // Ordena os clientes com base no progresso (do maior para o menor)
+            clients.sort((a, b) => b.progress - a.progress);
+
+            clients.forEach(client => {
+                let row = tableBody.insertRow();
+                let nameCell = row.insertCell();
+                let progressCell = row.insertCell();
+                let statusCell = row.insertCell();
+                let observationCell = row.insertCell();
+
+                nameCell.innerHTML = client.name;
+
+                // Cria a estrutura da barra de progresso
+                let progressContainer = document.createElement('div');
+                progressContainer.className = 'progress-bar-container';
+                let progressBar = document.createElement('div');
+                progressBar.className = 'progress-bar';
+                progressBar.style.width = client.progress + '%'; // Define a largura da barra
+                progressBar.innerHTML = client.progress + '%'; // Exibe a porcentagem dentro da barra
+
+                let progressPercentage = document.createElement('span');
+                progressPercentage.className = 'progress-percentage';
+                progressPercentage.innerHTML = client.progress + '%';
+
+                progressContainer.appendChild(progressBar);
+                progressCell.appendChild(progressContainer);
+                //progressCell.appendChild(progressPercentage);
+
+                statusCell.innerHTML = client.status;
+                observationCell.innerHTML = client.observation;
+            });
+        }
+
+        populateTable();
+    </script>
+
+</body>
+</html>
